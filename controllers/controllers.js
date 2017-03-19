@@ -10,6 +10,11 @@ module.exports = function(app){
 		res.sendFile(path.join(__dirname + "/../public/", "index.html"));
 	});
 
+	//something for heroku. Its a favicon stuff
+	app.get("/favicon.ico", function(req, res){
+		res.send(204);
+	});
+
 	app.post("/api/saved", function(req, res){
 		var newArt = new Nyts(req.body);
 
