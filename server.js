@@ -20,8 +20,9 @@ require("./controllers/controllers.js")(app);
 const mongoose = require("mongoose");
 mongoose.Promise = Promise;
 //***************depending if you are doing a local host or heroku this depends on the switch
-mongoose.connect("mongodb://localhost/nyt");
-// mongoose.connect("mongodb://heroku_27j86b0b:82fu6h1k65crrmu2070ouua0v4@ds129050.mlab.com:29050/heroku_27j86b0b");
+// mongoose.connect("mongodb://localhost/nyt");
+mongoose.connect("mongodb://heroku_07v30h7b:3195cv4gnm9t6p9pv6mg6108hh@ds137100.mlab.com:37100/heroku_07v30h7b
+")
 //***************************************************************************************************
 var db = mongoose.connection;
 db.on("error", function(error) {

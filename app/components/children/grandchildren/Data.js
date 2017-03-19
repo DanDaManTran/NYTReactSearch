@@ -1,6 +1,16 @@
 const React = require("react");
 
 var Query = React.createClass({
+	deleteBtn: function(){
+		$.ajax({url: "/api/saved/" + this.props.id, type: 'DELETE', success: (result)	=> {
+			if(result){
+				$.get("/api/saved").done( (data) => {
+					this.props.setParent(data);
+				});
+			}
+	  }});
+	},
+
 	render: function() {
 		return(
 			<div className="row">
@@ -21,8 +31,13 @@ var Query = React.createClass({
 					</a>
 				</div>
 				<div className="col-sm-2">
-					<button className="saveBtn btn btn-primary btn-lg">
-						Save
+					<button className="saveBtn btn btn-primary btn-lg"
+									data-title={this.props.title}
+									data-date={this.props.date}
+									data-url={this.props.url}
+									data-id={this.props.id}
+									onClick={this.deleteBtn}>
+						Delete
 					</button>
 				</div>
 			</div>

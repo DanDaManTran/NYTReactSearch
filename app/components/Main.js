@@ -9,12 +9,17 @@ var Main = React.createClass({
 						<i className="fa fa-newspaper-o"></i>
 						New York Times Search
 					</h1>
-					<a href="#">
+					<a className="btn btn-primary" href="#/Search">
 						Search
 					</a>
-					<a href="#">
+					<a className="btn btn-primary" href="#/Saved">
 						Saved
 					</a>
+				</div>
+				<div>
+
+					{this.props.children}
+
 				</div>
 			</div>
 		);
