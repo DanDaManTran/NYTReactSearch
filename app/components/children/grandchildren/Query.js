@@ -1,6 +1,7 @@
 const React = require("react");
 
 var Query = React.createClass({
+	//create an obj to save it in the collection and removing that specific choice so there isnt mulitple save of the same article
 	saveBtn: function(){
 		var obj = {
 			title: this.props.title,

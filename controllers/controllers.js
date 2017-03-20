@@ -6,6 +6,7 @@ const Nyts = require("./../models/Nyt.js");
 
 
 module.exports = function(app){
+	//defaut page for the load up
 	app.get("/", function(req, res){
 		res.sendFile(path.join(__dirname + "/../public/", "index.html"));
 	});
@@ -15,6 +16,7 @@ module.exports = function(app){
 		res.send(204);
 	});
 
+	//this will let you post on the database
 	app.post("/api/saved", function(req, res){
 		var newArt = new Nyts(req.body);
 
@@ -25,6 +27,7 @@ module.exports = function(app){
 		});
 	});
 
+	//getting the database information for the display
 	app.get("/api/saved", function(req, res){
 		Nyts.find({}, function(error, doc) {
 	    if (error) {
@@ -35,6 +38,7 @@ module.exports = function(app){
 	  });
 	});
 
+	//deleting what the user chooses to delete
 	app.delete("/api/saved/:id", function(req, res){
 		Nyts.findByIdAndRemove(req.params.id, function (error, doc) {
 			if (error) {

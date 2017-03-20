@@ -8,6 +8,7 @@ var Search = React.createClass({
 		return { term: "", numRec: 5, sYear: "", eYear: "", articles: []};
 	},
 
+	// dynamicly creating the query search
 	displayResult: function() {
 		return this.state.articles.map(function(art, index){
 
@@ -15,16 +16,19 @@ var Search = React.createClass({
 		});
 	},
 
+	//listening for any inputs so it can be save in the state, so the state is ready to send to the database
 	handleChange: function(event) {
 		var newState = {};
 		newState[event.target.id] = event.target.value;
 		this.setState(newState);
 	},
 
+	//this will clear the query when it is needed
 	handleClear: function() {
 		this.setState({articles: []});
 	},
 
+	//this will handle the search via ajax to the NYT api
 	handleSearch: function (){
 		var url = queryURLBase + this.state.term;
 
@@ -122,6 +126,7 @@ var Search = React.createClass({
 						</h3>
 					</div>
 					<div className="panel-body">
+						{/* this is where i dynamicly create the query results */}
 						{this.displayResult()}
 					</div>
 				</div>

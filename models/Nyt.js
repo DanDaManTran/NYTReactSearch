@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 // Create a Schema class with mongoose
 var Schema = mongoose.Schema;
 
-// Create a NoteSchema with the Schema class
+// Create a NytsScheme with the Schema class
 var NytsScheme = new Schema({
   title: {
     type: String
@@ -17,7 +17,7 @@ var NytsScheme = new Schema({
 	}
 });
 
-// Make a Note model with the NoteSchema
+// Make a Nyts model with the NytsScheme
 var Nyts = mongoose.model("Nyts", NytsScheme);
 
 // Export the Note model

@@ -7,18 +7,21 @@ var Saved = React.createClass({
 		return { data: [] };
 	},
 
+	// waiting for the page to load so it can grab the database information so it can save it in the state for the display
 	componentDidMount: function() {
 		$.get("/api/saved").done( (result) => {
 			this.setState({data: result});
 		});
 	},
 
+	//this will delete unique items in the collection
 	deleteBtn: function(){
 		$.ajax({url: "/api/saved/" + this.props.id, type: 'DELETE', success: (result)	=> {
 			this.setState({data: result});
 	  }});
 	},
 
+	//this will dynamicly create the list of of saved articles from the database
 	displayData: function() {
 		return this.state.data.map((sArt, index) => {
 
@@ -26,6 +29,7 @@ var Saved = React.createClass({
 		});
 	},
 
+	//this is the call back function so it can display the new result after you delete a document
 	setParent: function(data) {
 		this.setState({data: data});
 	},
