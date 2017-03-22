@@ -2,7 +2,7 @@
 
 ##Week 19 Assignment -  NYT React Search
 
-This utilize the NYT API to search up articles by terms and years (optional). Then you can save the article to a database so you can read the article in the future. There is a tab to display all the saved articles and you can delete any of the articles, if you so do desire. **strong**This is all running on react**strong**
+This utilize the NYT API to search up articles by terms and years (optional). Then you can save the article to a database so you can read the article in the future. There is a tab to display all the saved articles and you can delete any of the articles, if you so do desire. **strong** This is all running on react **strong**
 
 ##Installing
 
